@@ -141,7 +141,7 @@ function includesSubstring(x, sub) {
 function getMobList() {
     mobList = new Array();
     var xmlhttp = new XMLHttpRequest();
-    xmlhttp.onreadystatechange = function () {
+    xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             mobList = this.responseText.split(/\n/);
             for (var i = 0; i < mobList.length; i++) {
@@ -149,9 +149,9 @@ function getMobList() {
                 var mobOption = new Option(mobText, mobText);
                 $('#mobList').append(mobOption);
             }
-            $.getScript("dropSearch/chosen.jquery.js", function (data, textStatus, jqxhr) {
-                $.getScript("dropSearch/docsupport/prism.js", function (data, textStatus, jqxhr) {
-                    $.getScript("dropSearch/docsupport/init.js", function (data, textStatus, jqxhr) {
+            $.getScript("dropSearch/chosen.jquery.js", function(data, textStatus, jqxhr) {
+                $.getScript("dropSearch/docsupport/prism.js", function(data, textStatus, jqxhr) {
+                    $.getScript("dropSearch/docsupport/init.js", function(data, textStatus, jqxhr) {
                     });
                 });
             });
@@ -163,7 +163,7 @@ function getMobList() {
 
 function getNPCList() {
     var xmlhttp = new XMLHttpRequest();
-    xmlhttp.onreadystatechange = function () {
+    xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
 
 
@@ -179,9 +179,9 @@ function getNPCList() {
                 npcDict[name] = npcobj;
             }
 
-            $.getScript("dropSearch/chosen.jquery.js", function (data, textStatus, jqxhr) {
-                $.getScript("dropSearch/docsupport/prism.js", function (data, textStatus, jqxhr) {
-                    $.getScript("dropSearch/docsupport/init.js", function (data, textStatus, jqxhr) {
+            $.getScript("dropSearch/chosen.jquery.js", function(data, textStatus, jqxhr) {
+                $.getScript("dropSearch/docsupport/prism.js", function(data, textStatus, jqxhr) {
+                    $.getScript("dropSearch/docsupport/init.js", function(data, textStatus, jqxhr) {
                     });
                 });
             });
@@ -194,7 +194,7 @@ function getNPCList() {
 function getPoints() {
     poiDict = {};
     var xmlhttp = new XMLHttpRequest();
-    xmlhttp.onreadystatechange = function () {
+    xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             var json = JSON.parse(this.responseText);
             var totalItems = Object.keys(json).length;
@@ -273,7 +273,7 @@ function getPoints() {
 function getHousingPoints() {
     points = new Array();
     var xmlhttp = new XMLHttpRequest();
-    xmlhttp.onreadystatechange = function () {
+    xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             var json = JSON.parse(this.responseText);
             var totalItems = Object.keys(json).length;
@@ -327,7 +327,7 @@ function getHousingPoints() {
 function getDynamicPlayers() {
     dPoints = new Array();
     var xmlhttp = new XMLHttpRequest();
-    xmlhttp.onreadystatechange = function () {
+    xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             var json = JSON.parse(this.responseText);
             var totalItems = Object.keys(json).length;
@@ -486,12 +486,14 @@ function collides(x, y) {
             continue;
         }
 
-        var left = poitem.x - (1 / Math.sqrt(scale)), right = poitem.x + (1 / Math.sqrt(scale));
-        var top = poitem.y - (1 / Math.sqrt(scale)), bottom = poitem.y + (1 / Math.sqrt(scale));
-        if (right >= x
-            && left <= x
-            && bottom >= y
-            && top <= y) {
+        var left = poitem.x - (1 / Math.sqrt(scale)),
+            right = poitem.x + (1 / Math.sqrt(scale));
+        var top = poitem.y - (1 / Math.sqrt(scale)),
+            bottom = poitem.y + (1 / Math.sqrt(scale));
+        if (right >= x &&
+            left <= x &&
+            bottom >= y &&
+            top <= y) {
             isCollision = true;
             isLandblock = true;
 
@@ -514,7 +516,7 @@ function collides(x, y) {
         var npc = npcDict[npcName];
         var keys = Object.keys(npc);
 
-        var getKeys = function (obj) {
+        var getKeys = function(obj) {
             var keys = [];
             for (var key in obj) {
                 keys.push(key);
@@ -526,13 +528,15 @@ function collides(x, y) {
             var npcy = decodeMapString(splitCoords[0]);
             var npcx = decodeMapString(splitCoords[1]);
 
-            var left = npcx - (1 / Math.sqrt(scale)), right = npcx + (1 / Math.sqrt(scale));
-            var top = npcy - (1 / Math.sqrt(scale)), bottom = npcy + (1 / Math.sqrt(scale));
+            var left = npcx - (1 / Math.sqrt(scale)),
+                right = npcx + (1 / Math.sqrt(scale));
+            var top = npcy - (1 / Math.sqrt(scale)),
+                bottom = npcy + (1 / Math.sqrt(scale));
 
-            if (right >= x
-                && left <= x
-                && bottom >= y
-                && top <= y) {
+            if (right >= x &&
+                left <= x &&
+                bottom >= y &&
+                top <= y) {
                 isCollision = true;
                 var poitem = { 'LocationName': npc.Name, 'Type': npc.Type, 'Description': npc.Description };
                 getPointDataHTML(poitem);
@@ -769,21 +773,21 @@ function copyToClipboard() {
     window.prompt("Copy to clipboard: Ctrl+C, Enter", text);
 }
 
-(function ($) {
-    $.fn.disableSelection = function () {
-        return this.each(function () {
+(function($) {
+    $.fn.disableSelection = function() {
+        return this.each(function() {
             if (typeof this.onselectstart != 'undefined') {
-                this.onselectstart = function () { return false; };
+                this.onselectstart = function() { return false; };
             } else if (typeof this.style.MozUserSelect != 'undefined') {
                 this.style.MozUserSelect = 'none';
             } else {
-                this.onmousedown = function () { return false; };
+                this.onmousedown = function() { return false; };
             }
         });
     };
 })(jQuery);
 
-window.onload = function () {
+window.onload = function() {
     xcenter = document.getElementById("myCanvas").offsetWidth;
     ycenter = document.getElementById("myCanvas").offsetHeight;
     canvas = document.getElementById("myCanvas");
@@ -818,7 +822,7 @@ window.onload = function () {
     var mouseDown = false;
 
     // add button event listeners
-    document.getElementById("plus").addEventListener("click", function () {
+    document.getElementById("plus").addEventListener("click", function() {
         absoluteOffset.x = (translatePos.x - xcenter) / scale;
         absoluteOffset.y = (translatePos.y - ycenter) / scale;
 
@@ -832,7 +836,7 @@ window.onload = function () {
         draw();
     }, false);
 
-    document.getElementById("minus").addEventListener("click", function () {
+    document.getElementById("minus").addEventListener("click", function() {
         absoluteOffset.x = (translatePos.x - xcenter) / scale;
         absoluteOffset.y = (translatePos.y - ycenter) / scale;
 
@@ -844,14 +848,14 @@ window.onload = function () {
         draw();
     }, false);
 
-    document.getElementById("log").addEventListener("click", function () {
+    document.getElementById("log").addEventListener("click", function() {
 
         logLocation(canvas, scale, translatePos);
 
         draw();
     }, false);
 
-    document.getElementById("reset").addEventListener("click", function () {
+    document.getElementById("reset").addEventListener("click", function() {
         var coordinates = coordsFromLandblock(00, 00);
 
         translatePos = {
@@ -879,14 +883,14 @@ window.onload = function () {
     });
 
     // add event listeners to handle screen drag
-    canvas.addEventListener("mousedown", function (evt) {
+    canvas.addEventListener("mousedown", function(evt) {
         mouseDown = true;
         $('*').disableSelection();
         startDragOffset.x = evt.clientX - translatePos.x;
         startDragOffset.y = evt.clientY - translatePos.y;
     });
 
-    canvas.addEventListener("mouseup", function (evt) {
+    canvas.addEventListener("mouseup", function(evt) {
         mouseDown = false;
 
         // Get mouse position inside canvas screen (removes client side offsets)
@@ -938,7 +942,7 @@ window.onload = function () {
         copyCoords = yWithCompass + ", " + xWithCompass;
 
     }
-    canvas.addEventListener("mousewheel", function (evt) {
+    canvas.addEventListener("mousewheel", function(evt) {
         if ((evt.wheelDelta / Math.abs(evt.wheelDelta)) >= 0) {
             absoluteOffset.x = (translatePos.x - evt.clientX) / scale;
             absoluteOffset.y = (translatePos.y - evt.clientY) / scale;
@@ -962,7 +966,7 @@ window.onload = function () {
             draw();
         }
     });
-    canvas.addEventListener("DOMMouseScroll", function (evt) {
+    canvas.addEventListener("DOMMouseScroll", function(evt) {
         var delta = evt.wheelDelta ? evt.wheelDelta : -evt.detail;
         console.log(evt);
         if (delta >= 0) {
@@ -988,15 +992,15 @@ window.onload = function () {
             draw();
         }
     });
-    canvas.addEventListener("mouseover", function (evt) {
+    canvas.addEventListener("mouseover", function(evt) {
         mouseDown = false;
     });
 
-    canvas.addEventListener("mouseout", function (evt) {
+    canvas.addEventListener("mouseout", function(evt) {
         mouseDown = false;
     });
 
-    canvas.addEventListener("mousemove", function (evt) {
+    canvas.addEventListener("mousemove", function(evt) {
         if (mouseDown) {
             translatePos.x = evt.clientX - startDragOffset.x;
             translatePos.y = evt.clientY - startDragOffset.y;
@@ -1004,7 +1008,7 @@ window.onload = function () {
         }
     });
 
-    myCanvas.addEventListener('dblclick', function (evt) {
+    myCanvas.addEventListener('dblclick', function(evt) {
         absoluteOffset.x = (translatePos.x - xcenter) / scale;
         absoluteOffset.y = (translatePos.y - ycenter) / scale;
 
@@ -1021,8 +1025,8 @@ window.onload = function () {
 
     getPoints();
     getDynamicPlayers();
-    setInterval(function () { draw(); }, 1500);
-    setInterval(function () { getDynamicPlayers(); }, 1800);
+    setInterval(function() { draw(); }, 1500);
+    setInterval(function() { getDynamicPlayers(); }, 1800);
 };
 
 
