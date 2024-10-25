@@ -32,43 +32,43 @@
     "y": "26.2S"
   },
   {
-        "Type": "Player",
-        "LocationName": "Drissical",
-        "Race": "Aluvian",
-        "Level": "276",
-        "x": "55.6720040537287E",
-        "y": "4.42966078847168N"
-    },
-    {
-        "Type": "Player",
-        "LocationName": "Driss War I",
-        "Race": "Sho",
-        "Level": "65",
-        "x": "55.6720040537287E",
-        "y": "4.42966078847168N"
-    },
-    {
-        "Type": "Player",
-        "LocationName": "Driss War II",
-        "Race": "Aluvian",
-        "Level": "201",
-        "x": "55.6720040537287E",
-        "y": "4.42966078847168N"
-    },
-    {
-        "Type": "Player",
-        "LocationName": "Driss War III",
-        "Race": "Gharu'ndim",
-        "Level": "180",
-        "x": "55.6720040537287E",
-        "y": "4.42966078847168N"
-    },
-    {
-        "Type": "Player",
-        "LocationName": "Driss War IV",
-        "Race": "Sho",
-        "Level": "108",
-        "x": "55.6720040537287E",
-        "y": "4.42966078847168N"
-    }
+    "Type": "Player",
+    "LocationName": "Drissical",
+    "Race": "Aluvian",
+    "Level": "276",
+    "x": "55.6720040537287E",
+    "y": "4.42966078847168N"
+  },
+  {
+    "Type": "Player",
+    "LocationName": "Driss War I",
+    "Race": "Sho",
+    "Level": "65",
+    "x": "55.6720040537287E",
+    "y": "4.42966078847168N"
+  },
+  {
+    "Type": "Player",
+    "LocationName": "Driss War II",
+    "Race": "Aluvian",
+    "Level": "201",
+    "x": "55.6720040537287E",
+    "y": "4.42966078847168N"
+  },
+  {
+    "Type": "Player",
+    "LocationName": "Driss War III",
+    "Race": "Gharu'ndim",
+    "Level": "180",
+    "x": "55.6720040537287E",
+    "y": "4.42966078847168N"
+  },
+  {
+    "Type": "Player",
+    "LocationName": "Driss War IV",
+    "Race": "Sho",
+    "Level": "108",
+    "x": "55.6720040537287E",
+    "y": "4.42966078847168N"
+  }
 ]
